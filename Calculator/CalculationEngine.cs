@@ -4,29 +4,15 @@ namespace Calculator
 {
     public class CalculationEngine
     {
-        public double Calculate(string operation, double firstNumber, double secondNumber)
-        {
-            double result = 0;
-
-            switch (operation)
+        //Using switch expression introduced in C# 8.0
+        public double Calculate(string operation, double firstNumber, double secondNumber) =>
+            operation switch
             {
-                case "+":
-                    result = firstNumber + secondNumber;
-                    break;
-                case "-":
-                    result = firstNumber - secondNumber;
-                    break;
-                case "*":
-                    result = firstNumber * secondNumber;
-                    break;
-                case "/":
-                    result = firstNumber / secondNumber;
-                    break;
-                default:
-                    throw new InvalidOperationException("Operation is not supported");
-            }
-
-            return result;
-        }
+                "+" => firstNumber + secondNumber,
+                "-" => firstNumber - secondNumber,
+                "*" => firstNumber * secondNumber,
+                "/" => firstNumber / secondNumber,
+                _ => throw new InvalidOperationException("Operation is not supported")
+            };
     }
 }
