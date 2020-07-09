@@ -1,4 +1,5 @@
-﻿using System;
+﻿using static System.Console;
+using System;
 
 namespace Calculator
 {
@@ -12,21 +13,21 @@ namespace Calculator
                 CalculationEngine calculationEngine = new CalculationEngine();
 
                 //Read two operands from console and convert it to double
-                Console.WriteLine("Enter first operand: ");
-                var firstNumber = inputConverter.ConvertToNumber(Console.ReadLine());
-                Console.WriteLine("Enter second operand: ");
-                var secondNumber = inputConverter.ConvertToNumber(Console.ReadLine());
+                WriteLine("Enter first operand: ");
+                var firstNumber = inputConverter.ConvertToNumber(ReadLine());
+                WriteLine("Enter second operand: ");
+                var secondNumber = inputConverter.ConvertToNumber(ReadLine());
                 //Read operator from console
-                Console.WriteLine("Enter operator: ");
-                var operation = Console.ReadLine();
+                WriteLine("Enter operator: ");
+                var operation = ReadLine();
 
                 //Perform the calculation and print thr result to console
                 var result = calculationEngine.Calculate(operation, firstNumber, secondNumber);
-                Console.WriteLine(result);
+                WriteLine(result);
             }
             catch (Exception exception)
             {
-                Console.WriteLine(exception.Message);
+                WriteLine(exception.Message);
             }
         }
     }
